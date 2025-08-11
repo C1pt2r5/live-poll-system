@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+@import "tw-animate-css";
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-background: #FFFFFF;
+  --color-foreground: #0a0a0a;
+
+  --color-card: #F9FAFB;
+  --color-card-foreground: #0a0a0a;
+
+  --color-popover: #FFFFFF;
+  --color-popover-foreground: #0a0a0a;
+
+  --color-primary: #3B82F6;
+  --color-primary-foreground: #FFFFFF;
+
+  --color-secondary: #DBEAFE;
+  --color-secondary-foreground: #6B7280;
+
+  --color-muted: #F9FAFB;
+  --color-muted-foreground: #6B7280;
+
+  --color-accent: #DBEAFE;
+  --color-accent-foreground: #3B82F6;
+
+  --color-destructive: #EF4444;
+  --color-destructive-foreground: #FFFFFF;
+
+  --color-border: #E5E7EB;
+  --color-input: #DBEAFE;
+  --color-ring: #3B82F6;
+
+  --color-chart-1: #3B82F6; /* Primary */
+  --color-chart-2: #10B981; /* Success */
+  --color-chart-3: #F59E0B; /* Warning */
+  --color-chart-4: #EF4444; /* Error */
+  --color-chart-5: #6B7280; /* Secondary */
+
+  --color-sidebar: #F9FAFB;
+  --color-sidebar-foreground: #0a0a0a;
+  --color-sidebar-primary: #3B82F6;
+  --color-sidebar-primary-foreground: #FFFFFF;
+  --color-sidebar-accent: #DBEAFE;
+  --color-sidebar-accent-foreground: #3B82F6;
+  --color-sidebar-border: #E5E7EB;
+  --color-sidebar-ring: #3B82F6;
+
+  --radius-lg: 0.5rem;
+  --radius-md: calc(0.5rem - 2px);
+  --radius-sm: calc(0.5rem - 4px);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+
+  --font-display: "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: #E5E7EB; /* Matching design system border color */
+  }
+}
+
+@layer base {
+  :root {
+    --background: #FFFFFF;
+    --foreground: #0a0a0a;
+    --card: #F9FAFB;
+    --card-foreground: #0a0a0a;
+    --popover: #FFFFFF;
+    --popover-foreground: #0a0a0a;
+    --primary: #3B82F6;
+    --primary-foreground: #FFFFFF;
+    --secondary: #DBEAFE;
+    --secondary-foreground: #6B7280;
+    --muted: #F9FAFB;
+    --muted-foreground: #6B7280;
+    --accent: #DBEAFE;
+    --accent-foreground: #3B82F6;
+    --destructive: #EF4444;
+    --destructive-foreground: #FFFFFF;
+    --border: #E5E7EB;
+    --input: #DBEAFE;
+    --ring: #3B82F6;
+    --chart-1: #3B82F6;
+    --chart-2: #10B981;
+    --chart-3: #F59E0B;
+    --chart-4: #EF4444;
+    --chart-5: #6B7280;
+    --radius: 0.5rem;
+    --sidebar-background: #F9FAFB;
+    --sidebar-foreground: #0a0a0a;
+    --sidebar-primary: #3B82F6;
+    --sidebar-primary-foreground: #FFFFFF;
+    --sidebar-accent: #DBEAFE;
+    --sidebar-accent-foreground: #3B82F6;
+    --sidebar-border: #E5E7EB;
+    --sidebar-ring: #3B82F6;
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+
+  code {
+    font-family: var(--font-mono);
+  }
+
+  .container {
+    margin-inline: auto;
+    padding-inline: 2rem;
+  }
+}
